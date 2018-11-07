@@ -1,0 +1,112 @@
+.popup-menu {
+	width: 50%;
+	position: absolute;
+	padding: 15% ~"calc((50vw - 340px)/2 - 60px)" 30px;
+	background: #fff;
+	height: 100%;
+	box-sizing: border-box;
+	z-index: 20;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	display: none;
+
+	.menu-links {
+		align-self: flex-start;
+		font-size: 1.33em;
+		white-space: pre-line;
+
+		& > div {
+			margin-left: -5px;
+			padding: 0 5px;
+			cursor: pointer;
+			width: 100%;
+
+			span {
+				font-size: 1.76em;
+				font-weight: 700;
+				position: absolute;
+				top: -10px;
+			}
+
+			.top, .bottom {
+				position: relative;
+				overflow: hidden;
+				width: 210px;
+				top: 0;
+				height: 15px;
+				display: inline-flex;
+			}
+
+			&.to-me .top, 
+			&.to-me .bottom {
+				width: 145px;
+			}
+
+			.top::before {
+				content: "";
+				background: #f44336;
+				position: absolute;
+				width: 0%;
+				height: 1px;
+				bottom: 0;
+				left: 2px;
+				z-index: 10;
+				transition: all 0.3s;
+			}
+
+			.bottom {
+				height: 19px;
+				top: -6px;
+
+				&::before {
+					content: "";
+					background: #f44336;
+					position: absolute;
+					width: 0%;
+					height: 2px;
+					top: 0;
+					left: -2px;
+					z-index: 10;
+					transition: all 0.3s;
+				}
+
+				span {
+					top: initial;
+					bottom: 0;
+				}		
+			}
+
+			&:hover .top::before,
+			&:hover .bottom::before {
+				width: 100%;
+			}
+			
+			&:hover .top {
+				transform: translateX(-2px) skewX(8deg);
+			}			
+
+			&:hover .bottom{
+				transform: translateX(2px) skewX(8deg);
+			}
+		}
+	}
+
+	.contactme > div {
+		margin-bottom: 10px;
+		width: 300px;
+
+		&.email::before {
+			content: "\02709";
+			margin-right: 5px;
+			color: #787878;
+		}
+
+		&.number::before {
+			content: "\0260F";
+			margin-right: 5px;
+			// color: @grayColor;
+		}
+	}
+
+}
